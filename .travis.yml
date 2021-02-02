@@ -7,13 +7,11 @@ jobs :
       jdk : oraclejdk11
       before_script :
         - cd sample-application-backend
-        - mvn clean verify
     - stage : "Build and Test Nodejs"
       language : node.js
       node_js : "12.20"
       before_script :
         - cd sample-application-frontend
-        - npm run test
 cache :
   directories :
     - "$HOME/.m2/repository"
