@@ -25,7 +25,7 @@ jobs :
         - cd sample-application-backend
       script :
         - echo "Docker build ..."
-        - docker build -t sample-application-students_backend ./sample-application-backend 
+        - docker build -t sample-application-students_backend .
         - echo "$DockerHubPwd" | docker login -u "$DockerHubID" --password-stdin
         - echo "Docker push ..."
       on:
