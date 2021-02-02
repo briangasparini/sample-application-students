@@ -30,7 +30,7 @@ jobs :
         - docker build -t sample-application-students_backend .
         - echo "$DockerHubPwd" | docker login -u "$DockerHubID" --password-stdin
         - echo "Docker push ..."
-        - docker push briangasparini/dockerhub01:sample-application-students_backend
+        - docker image push briangasparini/dockerhub01:sample-application-students_backend
       on:
         branch: developBranch
     - stage : "Package"
@@ -41,7 +41,7 @@ jobs :
         - docker build -t sample-application-students_frontend .
         - echo "$DockerHubPwd" | docker login -u "$DockerHubID" --password-stdin
         - echo "Docker push ..."
-        - docker push briangasparini/dockerhub01:sample-application-students_frontend
+        - docker image push briangasparini/dockerhub01:sample-application-students_frontend
       on:
         branch: developBranch
 cache :
