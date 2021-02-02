@@ -6,6 +6,7 @@ COPY pom.xml .
 COPY src ./src
 RUN mvn package -DskipTests
 
+
 # Run
 FROM openjdk:11-jre
 ENV MYAPP_HOME /opt/backend
