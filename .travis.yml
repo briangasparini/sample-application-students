@@ -12,6 +12,7 @@ jobs :
         - cd sample-application-backend
       script :
         - echo "Maven build"
+        - mvn clean verify
         - echo "Run test coverage and Quality Gate"
     - stage : "Build and Test"
       language : node.js
@@ -20,6 +21,7 @@ jobs :
         - cd sample-application-frontend
       script :
         - echo "NPM install and build"
+        - npm run test
     - stage : "Package"
       before_script :
         - cd sample-application-backend
@@ -28,6 +30,7 @@ jobs :
         - docker build -t sample-application-students_backend .
         - echo "$DockerHubPwd" | docker login -u "$DockerHubID" --password-stdin
         - echo "Docker push ..."
+        - docker push briangasparini/dockerhub01:Dev
       on:
         branch: developBranch
     - stage : "Package"
