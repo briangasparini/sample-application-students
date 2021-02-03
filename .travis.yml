@@ -1,3 +1,4 @@
+#COMMENTAIRE
 git :
   depth : 5
 stages :
@@ -56,5 +57,5 @@ addons:
     token:
       secure: "$SONARCLOUD_TOKEN"
 language : java
-  script:
+  script: 
     - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar -Dsonar.projectKey=briangasparini_sample-application-students
