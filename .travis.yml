@@ -13,7 +13,7 @@ jobs :
         - cd sample-application-backend
       script :
         - echo "Maven build"
-        - mvn clean verify
+        - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar -Dsonar.projectKey=briangasparini_sample-application-students
         - echo "Run test coverage and Quality Gate"
     - stage : "Build and Test"
       language : node.js
@@ -56,6 +56,3 @@ addons:
     organization: "briangasparini"
     token:
       secure: "$SONARCLOUD_TOKEN"
-language : java
-  script: 
-    - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar -Dsonar.projectKey=briangasparini_sample-application-students
