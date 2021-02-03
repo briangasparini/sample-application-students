@@ -47,7 +47,7 @@ jobs :
         branch: developBranch
     - stage : "Package"
       before_script :
-        - cd C:/Users/brian/OneDrive/Documents/Devops/TP1/BDD
+        - cd ../../TP1/BDD
       script :
         - echo "Docker build ..."
         - docker build -t briangasparini/image_bdd .
