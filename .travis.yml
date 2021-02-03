@@ -12,7 +12,7 @@ jobs :
         - cd sample-application-backend
       script :
         - echo "Maven build"
-        - mvn clean verify
+        - mvn clean verify org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar -Dsonar.projectKey=devops-2021
         - echo "Run test coverage and Quality Gate"
     - stage : "Build and Test"
       language : node.js
@@ -50,3 +50,7 @@ directories :
   - "$HOME/.npm"
 services :
 - docker
+addons :
+  sonarcloud :
+    organization : "devops-cpe"
+    token : "$SONARCLOUD_TOKEN"
